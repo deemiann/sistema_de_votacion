@@ -1,0 +1,173 @@
+###############################################
+### NOMBRE DEL PROYECTO
+###############################################
+"""
+SISTEMA DE VOTACIONES CON TABLAS HASH
+"""
+
+###############################################
+### DATOS DEL GRUPO
+###############################################
+"""
+01 AGUIRRE QUISPE RALL ANDERSON  
+NumOrden APELLIDOS Y NOMBRES  Miembro
+
+HORARIO DE LABORATORIO:
+DÍA: JUEVES
+HORA: 7-9 AM
+"""
+
+###############################################
+### 1. Introducción
+###############################################
+"""
+Objetivo del proyecto:
+El propósito principal de este proyecto es crear e instalar un Sistema de Votaciones que sea eficaz y seguro. Para ello, se utilizarán tablas hash para manejar y verificar tanto a los votantes como a los votos. Se pretende implementar: Registro rápido y único de votantes, tambien la opcion añadir, buscar y eliminar datos, asegurando que el proceso electoral se mantenga íntegro.
+
+Descripción breve:
+El Sistema de Votaciones con Tablas Hash será una herramienta que permitirá a los usuarios registrarse como votantes, votar por candidatos específicos y ver los resultados de las elecciones al instante. El sistema empleará tablas hash para: Almacenar datos de votantes, evitar colisiones con técnicas como hashing cerrado o hashing abierto y otros.
+
+Alcance:
+Se implementará:
+
+* Registro de votantes con clave única (DNI).
+* Verificación en tiempo real para evitar votos duplicados.
+* La implementación de las tablas hash será fundamental para las operaciones de búsqueda y almacenamiento de datos.
+* Presentación clara y en tiempo real de los resultados parciales y finales.
+
+No se incluirá:
+
+* Autenticación biométrica o seguridad avanzada (solo DNI).
+* Integración con sistemas de identificación nacional (RENIEC).
+* Interfaz gráfica compleja.
+
+"""
+###############################################
+### 2. Análisis del Problema
+###############################################
+"""
+Entrada esperada:
+
+* DNI (entero/clave primaria).
+* Nombre del candidato votado (string).
+* Voto (string o entero representando candidato/opción).
+
+Salida esperada:
+
+* Validación de votantes.
+* Resultados electorales(Reporte en tiempo real con conteo por opción).
+* Número total de votantes registrados y votos emitidos.
+
+Restricciones:
+
+* Un voto por DNI.
+* Precisión: 0% de votos duplicados (garantizado por la unicidad de claves DNI).
+* Memoria: Uso eficiente de RAM (evitar colisiones excesivas que incrementen el tiempo a O(n)).
+
+Casos de uso:
+
+* Elecciones Estudiantiles Universitarias.
+* Votaciones en Asambleas de Comunidades o Cooperativas.
+* Encuestas Internas en Empresas.
+  """
+
+###############################################
+### 3. Selección de Estructuras de Datos
+###############################################
+"""
+Estructura principal: La estructura de datos principal es la Tabla Hash (Hash Table).
+
+Justificación:
+* Eficiencia en Tiempo: Verificar si un DNI ya votó toma microsegundos.
+* Unicidad de Claves: El DNI como clave única evita votos duplicados por diseño.
+* Escalabilidad: Ajuste dinámico del tamaño de la tabla (rehashing) para que pueda manejar un gran nùmero de votantes. 
+
+Estructuras auxiliares:
+* Listas Enlazadas: Para manejar colisiones en la tabla hash (encadenamiento).
+* Arrays Dinámicos: Almacenar resultados parciales durante el conteo de votos.
+* Clase/Estructura de Votante: Una estructura para encapsular los datos de cada votante (ID, nombre, estado de votación (haVotado: booleano)).
+
+  """
+
+###############################################
+### 4. Diseño del Algoritmo
+###############################################
+"""
+Descripción del algoritmo:
+
+1. Inicialización.
+2. Registro de Votante.
+3. Emisión de Voto.
+4. Verificación de Votante.
+5. Conteo de Votos.
+5. Mostrar resultados de cada candidato.
+
+Complejidad:
+
+* Visualización de Resultados: O(C+K), El C es el número de candidatos y K es la complejidad de obtener el conteo de votos para cada candidato (que sería O(1) en promedio). 
+* Registro de Votante: O(n) (lineal), si hay un número extremo de colisiones que degeneran la tabla hash.
+  """
+
+###############################################
+### 5. Implementación y documentación
+###############################################
+
+###############################################
+### MODULO 1
+###############################################
+
+###############################################
+### MODULO 2
+###############################################
+
+###############################################
+### MODULO  ..
+###############################################
+
+###############################################
+### 6. Evaluación y Conclusiones
+###############################################
+"""
+Pruebas de rendimiento:
+
+* Tiempo de Inserción: Registrar 1000 votantes con DNIs aleatorios.
+* Tiempo de Búsqueda: Verificar la existencia de 100 DNIs en una tabla con 1000 registros.
+* Uso de Memoria: Almacenar 1000 votantes en una tabla hash con tamaño inicial de 1500 buckets.
+
+Casos extremos:
+
+* Colisiones Masivas: Todos los DNIs generan el mismo hash.
+* Tabla Hash Llena: Aumento de colisiones y reducción de eficiencia.
+* DNIs Inválidos o Erróneos: Entrada de DNIs con letras o valores negativos.
+
+Comparación:
+
+* Frente a Listas (Arrays o Listas Enlazadas): Registro y Búsqueda de Votantes (requerirían una búsqueda O(N)). 
+* Frente a Árboles de Búsqueda Binaria (BSTs / AVL / Red-Black Trees): Los árboles balanceados ofrecen una complejidad de O(logN), que no es tan rápida como el O(1) promedio de las tablas hash.
+
+
+-------Resultados obtenidos:
+
+* Registrar nuevos votantes y verificar su unicidad de manera eficiente.
+* Prevención de votos duplicados mediante la unicidad del DNI.
+* Presentar los resultados de la votación de forma clara y accesible.
+
+
+Lecciones aprendidas:
+
+* Importancia del Diseño de la Función de Hash.
+* Modularización del código.
+* Aprendizaje de la Validación de Datos Crítica.
+
+Mejoras futuras:
+
+* Seguridad Reforzada: Añadir autenticación biométrica.
+* Interfaz Gráfica: Desarrollar una interfaz web o móvil.
+* Integración con Blockchain: Almacenar votos en una blockchain para garantizar la transparencia pública.
+  """
+
+\###############################################
+
+###
+
+\###############################################
