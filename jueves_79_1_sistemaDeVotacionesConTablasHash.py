@@ -16,6 +16,8 @@ SISTEMA DE VOTACIONES CON TABLAS HASH
 HORARIO DE LABORATORIO:
 DÍA: JUEVES
 HORA: 7-9 AM
+
+GRUPO: 1
 """
 
 ###############################################
@@ -143,11 +145,24 @@ Descripción del algoritmo:
 4. Incrementar contador del candidato en el diccionario.
 5. Mostrar resultados cuando se solicite.
 
-Complejidad:
+Complejidad Temporal:
+* registrar_voto:
+    Promedio: O(1+c)
+    Peor caso: O(n+c)
+* total_votantes: O(n)O(n)
+* mostrar_resultados: O(c)
+* eliminar_votante: O(b+c)
 
-* Inserción y búsqueda: promedio O(1)
-* Conteo de votos: O(n)
+Complejidad Espacial:
+* Tabla hash de votantes: 0(n+b)
+* Tabla de resultados: 0(c)
+* Total del sistema: 0(n+c+b)
+
+Donde n: numero de votantes
+      c: numero de candidatos
+      b: colisiones en una cubeta
   """
+
 
 ###############################################
 ### 5. Implementación y documentación
@@ -502,9 +517,3 @@ Mejoras futuras:
 * Integración con Blockchain: Almacenar votos en una blockchain para
   garantizar la transparencia pública.
   """
-
-###############################################
-
-###
-
-###############################################
